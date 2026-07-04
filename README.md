@@ -69,7 +69,17 @@ Notes on the numbers:
 - **DMARC pass rate** counts aligned passes (DKIM aligned pass *or* SPF aligned pass, from `policy_evaluated`), not dispositions.
 - **DKIM% / SPF%** are the share of a source's messages that passed the aligned check.
 
-## Building
+## Installing
+
+Prebuilt static Linux binaries (musl, no runtime dependencies) are available on the [releases page](https://github.com/plzsave/dmarc-lens/releases) — handy for dropping onto the server where your reports arrive:
+
+```
+curl -LO https://github.com/plzsave/dmarc-lens/releases/latest/download/dmarc-lens-v0.1.0-x86_64-unknown-linux-musl.tar.gz
+tar xzf dmarc-lens-v0.1.0-x86_64-unknown-linux-musl.tar.gz
+./dmarc-lens-v0.1.0-x86_64-unknown-linux-musl/dmarc-lens summary <PATH>...
+```
+
+Or build from source:
 
 ```
 cargo build --release

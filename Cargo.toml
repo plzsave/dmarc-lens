@@ -5,3 +5,7 @@ members = ["dmarc-parser", "dmarc-cli"]
 [workspace.package]
 edition = "2024"
 license = "MIT OR Apache-2.0"
+
+[profile.release]
+strip = true
+lto = "thin"

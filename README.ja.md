@@ -69,7 +69,17 @@ google.com            1          48
 - **DMARC pass rate** はdispositionではなくアライメント済みpass（`policy_evaluated` のDKIM aligned pass *または* SPF aligned pass）でカウントします。
 - **DKIM% / SPF%** は、その送信元のメッセージのうちアライメント済みチェックにpassした割合です。
 
-## ビルド
+## インストール
+
+ビルド済みの静的Linuxバイナリ（musl、ランタイム依存なし）を[リリースページ](https://github.com/plzsave/dmarc-lens/releases)で配布しています。レポートを受信しているサーバーに置くだけで動きます:
+
+```
+curl -LO https://github.com/plzsave/dmarc-lens/releases/latest/download/dmarc-lens-v0.1.0-x86_64-unknown-linux-musl.tar.gz
+tar xzf dmarc-lens-v0.1.0-x86_64-unknown-linux-musl.tar.gz
+./dmarc-lens-v0.1.0-x86_64-unknown-linux-musl/dmarc-lens summary <PATH>...
+```
+
+ソースからビルドする場合:
 
 ```
 cargo build --release
