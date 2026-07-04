@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feedback>
+  <report_metadata>
+    <org_name>dirty.example</org_name>
+    <report_id>dirty-0001</report_id>
+    <date_range>
+      <begin>1782259200</begin>
+      <end>1782345599</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>example.com</domain>
+    <p>none</p>
+  </policy_published>
+  <!-- invalid source_ip: record must be skipped, not the report -->
+  <record>
+    <row>
+      <source_ip>not-an-ip</source_ip>
+      <count>10</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>example.com</header_from>
+    </identifiers>
+  </record>
+  <!-- missing count -->
+  <record>
+    <row>
+      <source_ip>203.0.113.99</source_ip>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>example.com</header_from>
+    </identifiers>
+  </record>
+  <!-- missing header_from -->
+  <record>
+    <row>
+      <source_ip>203.0.113.98</source_ip>
+      <count>4</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <envelope_from>example.com</envelope_from>
+    </identifiers>
+  </record>
+  <!-- valid record; policy_evaluated omitted entirely -->
+  <record>
+    <row>
+      <source_ip>203.0.113.97</source_ip>
+      <count>1</count>
+    </row>
+    <identifiers>
+      <header_from>example.com</header_from>
+    </identifiers>
+  </record>
+</feedback>
