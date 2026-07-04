@@ -1,5 +1,7 @@
 # dmarc-lens
 
+English | [日本語](README.ja.md)
+
 A fast, forgiving CLI for analyzing DMARC aggregate reports (RUA, [RFC 7489](https://www.rfc-editor.org/rfc/rfc7489) Appendix C) — for everyone who receives RUA reports that nobody ever looks at.
 
 Point it at a directory of report files and get a delivery-health summary: DMARC pass rate, DKIM/SPF alignment breakdown, top sending sources, and the IPs that fail both DKIM and SPF (spoofing or misconfiguration candidates).
